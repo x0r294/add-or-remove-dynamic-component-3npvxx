@@ -26,5 +26,14 @@
   />
 </p>
 <p>
+Version = {{version.full}} <br/>
+<input type="file" (change)="upload($event.target.files)" />
+Upload Percent: {{percentDone}}% <br />
+
+<ng-container *ngIf="uploadSuccess">
+  Upload Successful
+</ng-container> 
+</p>
+<p>
   <button (click)="remove_me()">click to Remove</button>
 </p>

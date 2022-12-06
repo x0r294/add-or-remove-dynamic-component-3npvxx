@@ -17,6 +17,7 @@ export class ParentComponent {
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   VCR: ViewContainerRef;
 
+  Info: any = [];
   child_unique_key: number = 0;
   componentsReferences = Array<ComponentRef<ChildComponent>>();
 
@@ -37,9 +38,11 @@ export class ParentComponent {
 
   allInfo() {
     if (this.VCR.length < 1) return;
-    this.componentsReferences.forEach( (o) => {
-      console.log(o.instance.passid);
+
+    this.componentsReferences.forEach((o) => {
+      this.Info.push(o.instance.passid);
     });
+    console.log(this.Info);
   }
 
   remove(key: number) {
